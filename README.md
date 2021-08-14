@@ -20,11 +20,17 @@ For the JWT signing, simply use algorithm without private keys.
 
 ### Part 2 - Create ORM Layer and Database
 
-Once you have produced the two endpoints by storing them in array, you may go ahead to create the ORM layer and the database.
+Once you have produced the two endpoints by storing them in array, you may go ahead to create the ORM layer. You are recommended to use [sqlite::memory](https://sequelize.org/master/manual/getting-started.html).
 
+```
+npm install sequelize sqlite3
+```
 
+```js
+const sequelize = new Sequelize('sqlite::memory:');
+```
 
-Create the database table "accounts". 
+This way, the ORM model do not have dependency on any database. It will store data in memory. This will become compatible with the next lesson when we perform serverless deployment on free tier.
 
 ## Submission Guidelines
 
